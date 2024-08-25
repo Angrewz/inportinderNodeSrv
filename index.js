@@ -1,4 +1,5 @@
 const Fastify = require("fastify");
+const fastifyCors = require("@fastify/cors");
 const { Kysely, PostgresDialect } = require("kysely");
 const { Pool } = require("pg");
 require("dotenv").config();
@@ -12,7 +13,7 @@ const fastify = Fastify({
 
 // Подключение CORS
 fastify.register(fastifyCors, {
-  origin: '*', // Разрешить все источники, можно также указать конкретный источник, например: 'https://example.com'
+  origin: '*', // Разрешить все источники, можно также указать конкретный источник
   methods: ['GET', 'POST'], // Методы, которые разрешены
 });
 
